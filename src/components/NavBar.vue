@@ -2,10 +2,7 @@
   <nav class="shadow mb-2">
 <div class="relative flex max-w-screen-xl flex-col overflow-hidden px-4 py-4 md:mx-auto md:flex-row md:items-center">
   <a href="#" class="flex items-center whitespace-nowrap text-2xl font-black">
-    <span class="mr-2 text-4xl text-blue-600 w-20">
-      <img src="../assets/logo.png" class=" w- h-20"  alt="">
-    </span>
-    <span class="text-black">Rick & Morty Wiki</span>
+    <span class="text-black p-1">Rick & Morty</span><span class="bg-gradient-to-r from-blue-900 via-blue-500 to-indigo-300 inline-block text-transparent bg-clip-text text-3xl"> Wiki</span>
   </a>
   <input type="checkbox" class="peer hidden" id="navbar-open" />
   <label class="absolute top-5 right-7 cursor-pointer md:hidden" for="navbar-open">
@@ -16,9 +13,9 @@
   </label>
   <nav aria-label="Header Navigation" class="peer-checked:mt-8 peer-checked:max-h-56 flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all md:ml-24 md:max-h-full md:flex-row md:items-start">
     <ul class="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
-      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><a href="#">Pricing</a></li>
-      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><a href="#">Features</a></li>
-      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><a href="#">Support</a></li>
+      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><a href="#">Characters</a></li>
+      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><a href="#">Episode</a></li>
+      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><a href="#">Location</a></li>
       <li class="text-gray-600 md:mr-12 hover:text-blue-600">
         <button class="rounded-md border-2 border-blue-600 px-6 py-1 font-medium text-blue-600 transition-colors hover:bg-blue-600 hover:text-white">Login</button>
       </li>

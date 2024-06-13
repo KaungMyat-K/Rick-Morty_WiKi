@@ -9,4 +9,7 @@
     .hamburger div:last-child {
       @apply -rotate-45 -translate-y-1;
     }
+    /* .card {
+      @apply rounded-xl shadow-lg;
+    } */
   }
