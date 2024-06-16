@@ -29,8 +29,7 @@
 <script setup>
 import Spinner from './Spinner.vue'
 import Error from './Error.vue'
-import { useFetchAPI } from "../API/useFetchAPI";
-import { computed, onMounted } from 'vue';
+import { useFetchAPI } from "../store/useFetchAPI";
 
 
 const props = defineProps({

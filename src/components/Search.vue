@@ -1,36 +1,67 @@
 <template>
-   <form class="flex flex-col md:flex-row gap-3 mx-3 justify-center mt-5">
-    <div class="flex">
-        <input type="text" placeholder="Search for the tool you like"
+	<div class="flex flex-col md:flex-row gap-3 mx-3 justify-center mt-5">
+   <form @submit="getInput.handleSubmit">
+    	<div class="flex">
+        	<input @input="getInput.handleInput" v-model="getInput.searchInput" type="text" placeholder="Search for the tool you like"
 			class="w-full md:w-80 px-3 h-10 rounded-l border-2 border-sky-500 focus:outline-none focus:border-sky-500"
 			>
-        <button type="submit" class="bg-sky-500 text-white rounded-r px-2 md:px-3 py-0 md:py-1">Search</button>
-    </div>
-    <select id="pricingType" name="pricingType"
+        	<button type="submit" class="bg-sky-500 text-white rounded-r px-2 md:px-3 py-0 md:py-1">Search</button>
+    	</div>
+	</form>
+    <select  @change="getInput.handleStatus" id="pricingType" name="pricingType"
 		class=" h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
-		<option value="All" selected="">Status</option>
-		<option value="Freemium">Freemium</option>
-		<option value="Free">Free</option>
-		<option value="Paid">Paid</option>
+		<option value="" disabled>Status</option>
+		<option v-for="(item,index) in status" :value="item" :key="index">{{ item }}</option>
 	</select>
-    <select id="pricingType" name="pricingType"
+    <select  @change="getInput.handleSpecies" id="pricingType" name="pricingType"
 		class=" h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
-		<option value="All" selected="">Species</option>
-		<option value="Freemium">Freemium</option>
-		<option value="Free">Free</option>
-		<option value="Paid">Paid</option>
+		<option value="" disabled>Species</option>
+		<option v-for="(item,index) in species" :value="item" :key="index">{{ item }}</option>
 	</select>
-    <select id="pricingType" name="pricingType"
+    <select  @change="getInput.handleGender" id="pricingType" name="pricingType"
 		class=" h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
-		<option value="All" selected="">Gender</option>
-		<option value="Freemium">Freemium</option>
-		<option value="Free">Free</option>
-		<option value="Paid">Paid</option>
+		<option value="" disabled>Gender</option>
+		<option v-for="(item,index) in gender" :value="item" :key="index">{{ item }}</option>
 	</select>
-</form>
+</div>
+
 </template>
 
 <script setup>
+import { ref } from "vue";
+import {useGetInput} from '../store/useGetInput'
+
+const status = ref(["Alive", "Dead", "Unknown"])
+const species = ref([ "Human","Alien","Humanoid","Poopybutthole","Mythological","Unknown","Animal","Disease","Robot","Cronenberg","Planet"])
+const gender = ref(["female", "male", "genderless", "unknown"])
+
+// const searchInput = ref('')
+
+// const emit = defineEmits(['handleInput','handleSubmit','handleStatus','handleSpecies','handleGender'])
+
+// let handleInput = (e)=>{
+// 	emit('handleInput',e.target.value)
+// }
+
+// let handleSubmit = (e)=>{
+// 	e.preventDefault();
+// 	emit('handleSubmit',searchInput.value)
+// }
+
+// let handleStatus = (e)=>{
+// 	emit('handleStatus',e.target.value)
+// }
+
+// let handleSpecies = (e)=>{
+// 	emit('handleSpecies',e.target.value)
+// }
+
+// let handleGender = (e)=>{
+// 	emit('handleGender',e.target.value)
+// }
+
+const getInput = useGetInput();
+
 
 </script>
 
