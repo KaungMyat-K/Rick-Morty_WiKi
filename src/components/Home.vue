@@ -1,19 +1,12 @@
 <template>
     <div>
-      <!-- <Search 
-      @handleInput="handleInput"
-      @handleSubmit="handleSubmit"
-      @handleStatus="handleStatus"
-      @handleSpecies="handleSpecies"
-      @handleGender="handleGender"
-      /> -->
       <Search/>
 
-        <Spinner v-if="loading"/>
-        <Error v-else-if="errorMessage" :errorMessage="errorMessage" />
+        <Spinner v-if="fetchAPI.loading"/>
+        <Error v-else-if="fetchAPI.errorMessage" :errorMessage="fetchAPI.errorMessage" />
         <div v-else class="flex justify-center  container mx-auto mt-5">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">  
-                <Card :characters="getCharacters" /> 
+                <Card :characters="fetchAPI.getCharacters" /> 
             </div>
         </div>     
     </div>
@@ -25,51 +18,18 @@ import Card from './Card.vue'
 import Spinner from './Spinner.vue'
 import Error from './Error.vue'
 import {useFetchAPI} from '../store/useFetchAPI'
-import { storeToRefs } from 'pinia';
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, watch } from 'vue'
 import {useGetInput} from '../store/useGetInput'
 
     const fetchAPI = useFetchAPI()
-    const {loading,errorMessage,getCharacters} = storeToRefs(fetchAPI);
-
-    // const input = ref('')
-    // const statusInput = ref('')
-    // const speciesInput = ref('')
-    // const genderInput = ref('')
-
-    // let handleStatus = (e)=>{
-    //     statusInput.value = e
-    //     console.log(e);
-    // }
-
-    // let handleSpecies = (e)=>{
-    //     speciesInput.value = e
-    //     console.log(e);
-    // }
-
-    // let handleGender = (e)=>{
-    //     genderInput.value = e
-    //     console.log(e);
-    // }
-
-    // let handleInput = (e)=>{
-    //     input.value = e
-    // }
-
-    // let handleSubmit = (e)=>{
-    //     input.value = e
-    // }
-
     const getInput = useGetInput();
 
-    // let {handleInput,handleSubmit,handleStatus,handleSpecies,handleGender,input,statusInput,speciesInput,genderInput,searchInput} = storeToRefs(getInput)
-
+    watch([getInput.getInput,getInput.getStatusInput,getInput.getGenderInput,getInput.getSpeciesInput],
+    ([input,status,gender,species])=>fetchAPI.fetchCharactersByFilter(input,status,gender,species))
 
     onMounted(()=>{ 
         fetchAPI.fetchCharacters()  
     })
-
-
 </script>
 
 <style lang="scss" scoped>

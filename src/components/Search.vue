@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col md:flex-row gap-3 mx-3 justify-center mt-5">
+<div class="flex flex-col md:flex-row gap-3 mx-3 justify-center mt-5">
    <form @submit="getInput.handleSubmit">
     	<div class="flex">
         	<input @input="getInput.handleInput" v-model="getInput.searchInput" type="text" placeholder="Search for the tool you like"
@@ -35,30 +35,6 @@ const status = ref(["Alive", "Dead", "Unknown"])
 const species = ref([ "Human","Alien","Humanoid","Poopybutthole","Mythological","Unknown","Animal","Disease","Robot","Cronenberg","Planet"])
 const gender = ref(["female", "male", "genderless", "unknown"])
 
-// const searchInput = ref('')
-
-// const emit = defineEmits(['handleInput','handleSubmit','handleStatus','handleSpecies','handleGender'])
-
-// let handleInput = (e)=>{
-// 	emit('handleInput',e.target.value)
-// }
-
-// let handleSubmit = (e)=>{
-// 	e.preventDefault();
-// 	emit('handleSubmit',searchInput.value)
-// }
-
-// let handleStatus = (e)=>{
-// 	emit('handleStatus',e.target.value)
-// }
-
-// let handleSpecies = (e)=>{
-// 	emit('handleSpecies',e.target.value)
-// }
-
-// let handleGender = (e)=>{
-// 	emit('handleGender',e.target.value)
-// }
 
 const getInput = useGetInput();
 

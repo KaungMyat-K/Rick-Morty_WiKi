@@ -1,19 +1,23 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 
 export const useGetInput = defineStore('getInput',()=>{
-    const input = ref('')
+
+    const searchInput = ref('')
     const statusInput = ref('')
     const speciesInput = ref('')
     const genderInput = ref('')
-    const searchInput = ref('')
 
     let handleInput = (e)=>{
-        console.log(e.target.value)
-        input.value = e.target.value 
+        searchInput.value = e.target.value  
     }
     
+    let getInput = computed(()=> searchInput)
+    let getStatusInput = computed(()=> statusInput)
+    let getSpeciesInput = computed(()=> speciesInput)
+    let getGenderInput = computed(()=> genderInput)
+
     let handleSubmit = (e)=>{
         e.preventDefault();
     }
@@ -30,8 +34,6 @@ export const useGetInput = defineStore('getInput',()=>{
         genderInput.value = e.target.value
     } 
 
-
-    
-    // return {handleInput,handleSubmit,handleStatus,handleSpecies,handleGender,input,statusInput,speciesInput,genderInput,searchInput}
+    return {handleInput,handleSubmit,handleStatus,handleSpecies,handleGender,searchInput,getInput,getStatusInput,getSpeciesInput,getGenderInput}
 
 })

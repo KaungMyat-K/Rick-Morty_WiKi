@@ -9,13 +9,9 @@ export const useFetchAPI = defineStore('fetchAPI',()=>{
        let loading = ref(false)
        let errorMessage = ref('')
 
-       let getCharacters = computed(()=>{
-        return characters.value
-         })
+        let getCharacters = computed(()=>characters.value)
+        let getCharacterById = computed(()=>characters.value)
 
-        let getCharacterById = computed(()=>{
-           return characters.value
-        })
 
         let fetchCharacters = async()=>{
             loading.value = true
@@ -28,6 +24,18 @@ export const useFetchAPI = defineStore('fetchAPI',()=>{
                 loading.value=false
             })
         }
+
+        let fetchCharactersByFilter = async(input,status,gender,species)=>{
+            loading.value = true
+             await axios.get(`https://rickandmortyapi.com/api/character/?name=${input}&status=${status}&gender=${gender}&species=${species}`)
+            .then(res=>{
+                characters.value=res.data.results
+                loading.value = false
+            }).catch(err=>{
+                errorMessage.value=err.errorMessage
+                loading.value=false
+            })
+        }
         
-        return {characters,loading,errorMessage,getCharacters,getCharacterById,fetchCharacters}
+        return {characters,loading,errorMessage,getCharacters,getCharacterById,fetchCharacters,fetchCharactersByFilter}
 })
