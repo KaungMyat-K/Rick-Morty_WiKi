@@ -13,11 +13,10 @@
   </label>
   <nav aria-label="Header Navigation" class="peer-checked:mt-8 peer-checked:max-h-56 flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all md:ml-24 md:max-h-full md:flex-row md:items-start">
     <ul class="flex flex-col items-center space-y-2 md:ml-auto md:flex-row md:space-y-0">
-      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><a href="#">Characters</a></li>
-      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><a href="#">Episode</a></li>
-      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><a href="#">Location</a></li>
+      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><router-link to="/">Characters</router-link></li>
+      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><router-link  to="/episodes">Episode</router-link></li>
+      <li class="text-gray-600 md:mr-12 hover:text-blue-600"><router-link  to="/location">Location</router-link></li>
       <li class="text-gray-600 md:mr-12 hover:text-blue-600">
-        <button class="rounded-md border-2 border-blue-600 px-6 py-1 font-medium text-blue-600 transition-colors hover:bg-blue-600 hover:text-white">Login</button>
       </li>
     </ul>
   </nav>
