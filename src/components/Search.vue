@@ -10,17 +10,17 @@
 	</form>
     <select  @change="getInput.handleStatus" id="pricingType" name="pricingType"
 		class=" h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
-		<option value="" disabled>Status</option>
+		<option value="" disabled selected>Status</option>
 		<option v-for="(item,index) in status" :value="item" :key="index">{{ item }}</option>
 	</select>
     <select  @change="getInput.handleSpecies" id="pricingType" name="pricingType"
 		class=" h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
-		<option value="" disabled>Species</option>
+		<option value="" disabled selected>Species</option>
 		<option v-for="(item,index) in species" :value="item" :key="index">{{ item }}</option>
 	</select>
     <select  @change="getInput.handleGender" id="pricingType" name="pricingType"
 		class=" h-10 border-2 border-sky-500 focus:outline-none focus:border-sky-500 text-sky-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
-		<option value="" disabled>Gender</option>
+		<option value="" disabled selected>Gender</option>
 		<option v-for="(item,index) in gender" :value="item" :key="index">{{ item }}</option>
 	</select>
 </div>

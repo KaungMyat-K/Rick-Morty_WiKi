@@ -20,6 +20,9 @@ export const useGetInput = defineStore('getInput',()=>{
 
     let handleSubmit = (e)=>{
         e.preventDefault();
+        statusInput.value = ''
+        speciesInput.value = ''
+        genderInput.value = ''
     }
     
     let handleStatus = (e)=>{  

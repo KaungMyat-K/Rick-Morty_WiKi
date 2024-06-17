@@ -6,12 +6,12 @@ import { computed, ref } from "vue";
 export const useFetchAPI = defineStore('fetchAPI',()=>{
 
        let  characters = ref([])
-       let character = ref({})
+       let character = ref(null)
        let loading = ref(false)
        let errorMessage = ref('')
 
         let getCharacters = computed(()=>characters.value)
-        let getCharacterById = computed(()=>character.value)
+        let getCharacterById = computed(()=> character.value)
 
         let fetchCharacters = async()=>{
             loading.value = true
@@ -41,10 +41,8 @@ export const useFetchAPI = defineStore('fetchAPI',()=>{
             loading.value = true
              await axios.get(`https://rickandmortyapi.com/api/character/${id}`)
             .then(res=>{
-                console.log(res.data)
                 character.value = res.data
                 loading.value = false
-                console.log(character.value)
             }).catch(err=>{
                 errorMessage.value=err.errorMessage
                 loading.value=false

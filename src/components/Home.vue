@@ -1,7 +1,6 @@
 <template>
     <div>
       <Search/>
-
         <Spinner v-if="fetchAPI.loading"/>
         <Error v-else-if="fetchAPI.errorMessage" :errorMessage="fetchAPI.errorMessage" />
         <div v-else class="flex justify-center  container mx-auto mt-5">

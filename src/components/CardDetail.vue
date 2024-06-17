@@ -1,9 +1,9 @@
 <template>
 <div>
-<!--   
+  
   <Spinner v-if="fetchAPI.loading"/>
   <Error v-else-if="fetchAPI.errorMessage" :errorMessage="fetchAPI.errorMessage" />
-  <div
+  <div v-if="fetchAPI.getCharacterById"
     class="max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg mt-20">
     <div class="relative">
       <img class="w-full h-48 object-cover"
@@ -19,10 +19,10 @@
        </ul> 
     <div class="px-6 py-4">
       <span
-        class="inline-block px-2 py-1 font-semibold text-teal-900 bg-teal-200 rounded-full"
+        class="inline-block px-2 py-1 font-semibold text-white  rounded-full" :class="[fetchAPI.getCharacterById.status === 'Alive' && 'bg-green-600']"
         >{{ fetchAPI.getCharacterById.status }}</span>
     </div>
-  </div> -->
+  </div> 
 
 </div>
 </template>
@@ -41,8 +41,7 @@ const props = defineProps({
       }
   })
 
-  const fetchAPI = useFetchAPI();
-  console.log('fetch',fetchAPI.getCharacterById)
+  const fetchAPI = useFetchAPI(); 
 
   onMounted(()=>{
     fetchAPI.fetchCharacterById(props.id)
